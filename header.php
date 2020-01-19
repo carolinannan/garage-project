@@ -36,7 +36,6 @@ if (isset($_SESSION['user'])){ // check it i the variable exist or not
                       <div class="col-sm-4 offset-md-1 py-4">
                         <h4 class="text-white">Contact</h4>
                         <ul class="list-unstyled">
-<<<<<<< HEAD
                           <li><a href="index.php" class="text-white">Home</a></li>
                           <li><a href="login.php" class="text-white">Login</a></li>
                           <li><a href="register.php" class="text-white">Register</a></li>
@@ -45,15 +44,6 @@ if (isset($_SESSION['user'])){ // check it i the variable exist or not
                           <li><a href="customer-reviews.php" class="text-white">Customer Reviews</a></li>
                           <li><a href="review.php" class="text-white">Review</a></li>
                           <li><a href="vehicle_register.php" class="text-white">vehicle register</a></li>
-=======
-                          <li><a href="#" class="text-white">Home</a></li>
-                          <li><a href="#" class="text-white">Login</a></li>
-                          <li><a href="#" class="text-white">Register</a></li>
-                          <li><a href="#" class="text-white">Booking</a></li>
-                          <li><a href="#" class="text-white">History</a></li>
-                          <li><a href="#" class="text-white">Customer Reviews</a></li>
-                          <li><a href="#" class="text-white">Review</a></li>
->>>>>>> 1a149ae4acecacf030b65c2e95a23504a28a2ff2
                         </ul>
                       </div>
                     </div>
@@ -72,5 +62,6 @@ if (isset($_SESSION['user'])){ // check it i the variable exist or not
                     </button>
                   </div>
                 </div>
+                
               </header>
     
