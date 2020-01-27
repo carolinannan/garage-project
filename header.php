@@ -1,6 +1,8 @@
 <?php
 
 include('conn.php');
+
+//echo $_SESSION['user']; 
 if (isset($_SESSION['user'])){ // check it i the variable exist or not
  }
 
@@ -37,13 +39,23 @@ if (isset($_SESSION['user'])){ // check it i the variable exist or not
                         <h4 class="text-white">Contact</h4>
                         <ul class="list-unstyled">
                           <li><a href="index.php" class="text-white">Home</a></li>
+                          <?php
+                            if (!isset($_SESSION['user'])){
+                          ?>
                           <li><a href="login.php" class="text-white">Login</a></li>
                           <li><a href="register.php" class="text-white">Register</a></li>
+                          <?php 
+                            } else {
+                          ?>
+
                           <li><a href="booking.php" class="text-white">Booking</a></li>
                           <li><a href="history.php" class="text-white">History</a></li>
                           <li><a href="customer-reviews.php" class="text-white">Customer Reviews</a></li>
+                         <li><a href="vehicle_register.php" class="text-white">Vehicle register</a></li>
+                            <?php } ?>
                           <li><a href="review.php" class="text-white">Review</a></li>
-                          <li><a href="vehicle_register.php" class="text-white">vehicle register</a></li>
+                          <li><a href="logout.php" class="text-white">Logout</a></li>
+                          <li><a href="dashboard-index.php" class="text-white">Admin</a></li>
                         </ul>
                       </div>
                     </div>

@@ -2,7 +2,51 @@
 
 <?php 
 include('header.php');
+include('bookingOptions.php');
 ?>
+
+<script>
+//quando carrega a página usa essa funcao para gerar as opções em dropdown 
+window.onload = function() {
+  getDateOptions();
+}
+
+function getDateOptions(){
+  var request;
+  request = $.ajax({
+    url:"bookingValidation.php",
+    type: "get",
+    data: ""
+  }).done(function (data){
+    console.log(data);
+    var dateSelect = document.getElementById("date-in");
+    var dateList = data.split("@");
+
+    for(i=0; i < dateList.length; i++){
+      var dateInfo = dateList[i];
+      var dateOption = new Option(dateInfo, dateInfo);
+      dateSelect.options.add(dateOption);
+    }
+  }).fail(function (){
+                alert ("erro");
+            });
+}
+
+</script>
+<p>Date: <select name="date-in" id="date-in" >
+
+</select></p>
+
+<p>Service: <select name="service" id="service" >
+  <?php echo $service_options; ?>
+</select></p>
+
+<p>Vehicle: <select name="vehicle" id="vehicle">
+<?php echo $vehicle_selection; ?>
+</select></p>
+<input type="hidden" name="user_id" id="user_id" value="<?php echo $_SESSION['id'] ?>" />
+</form>
+
 
 <?php
 
@@ -30,7 +74,7 @@ include('header.php');
             and book.status_id = sts.id 
             and book.vehicles_id = user_vehicle.id
             and user_vehicle.car_make_id  = vehicle.id";
-            $result = mysqli_query($conn, $query)
+            $result = mysqli_query($conn, $query);
         ?>
         
         <table class="table table-bordered">

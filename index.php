@@ -11,7 +11,7 @@ include('header.php');
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="assets/img/car1.jpg" class="d-block w-100" alt="...">
+      <img src="assets/img/slide1.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
       <img src="assets/img/car2.jpg" class="d-block w-100" alt="...">

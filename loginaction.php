@@ -9,7 +9,7 @@ $row = mysqli_fetch_assoc($result);
 $rowcount=mysqli_num_rows($result);
 if ($rowcount === 1) { 
     $_SESSION['user'] = $row['user_name'];
-    $_SESSION['id'] = $row['user_name'];
+    $_SESSION['id'] = $row['id'];
     echo $_SESSION['user'];
     header("Location: index.php");
 } else { 
