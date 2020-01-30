@@ -51,11 +51,13 @@ if (isset($_SESSION['user'])){ // check it i the variable exist or not
                           <li><a href="booking.php" class="text-white">Booking</a></li>
                           <li><a href="history.php" class="text-white">History</a></li>
                           <li><a href="customer-reviews.php" class="text-white">Customer Reviews</a></li>
-                         <li><a href="vehicle_register.php" class="text-white">Vehicle register</a></li>
+                          <li><a href="vehicle_register.php" class="text-white">Vehicle register</a></li>
+                          <li><a href="services.php" class="text-white">Services</a></li>
+
                             <?php } ?>
                           <li><a href="review.php" class="text-white">Review</a></li>
                           <li><a href="logout.php" class="text-white">Logout</a></li>
-                          <li><a href="dashboard-index.php" class="text-white">Admin</a></li>
+                          <li><a href="dashboard-index.php" class="text-white">Admin</a></li> 
                         </ul>
                       </div>
                     </div>
@@ -74,6 +76,7 @@ if (isset($_SESSION['user'])){ // check it i the variable exist or not
                     </button>
                   </div>
                 </div>
-                
+
+                                
               </header>
     

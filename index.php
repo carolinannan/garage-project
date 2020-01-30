@@ -111,7 +111,7 @@ include('header.php');
     </div>
     <div class="card mb-4 shadow-sm">
       <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Anual Service</h4>
+        <h4 class="my-0 font-weight-normal">Annual Service</h4>
       </div>
       <div class="card-body">
         <h1 class="card-title pricing-card-title">€150 </small></h1>
