@@ -2,6 +2,7 @@
 
 <?php 
 include('header.php');
+<<<<<<< HEAD
 $daysArray = array(
   date( 'Y-m-d', strtotime( 'monday this week' ) ),
   date( 'Y-m-d', strtotime( 'tuesday this week' ) ),
@@ -86,6 +87,97 @@ function validateForm(){
     document.getElementById("bookingForm").submit();
   }
 }
+=======
+include('bookingOptions.php');
+?>
+
+<script>
+//quando carrega a página usa essa funcao para gerar as opções em dropdown 
+window.onload = function() {
+  getDateOptions();
+}
+
+function getDateOptions(){
+  var request;
+  request = $.ajax({
+    url:"bookingValidation.php",
+    type: "get",
+    data: ""
+  }).done(function (data){
+    console.log(data);
+    var dateSelect = document.getElementById("date-in");
+    var dateList = data.split("@");
+
+    for(i=0; i < dateList.length; i++){
+      var dateInfo = dateList[i];
+      var dateOption = new Option(dateInfo, dateInfo);
+      dateSelect.options.add(dateOption);
+    }
+  }).fail(function (){
+                alert ("erro");
+            });
+}
+
+</script>
+<p>Date: <select name="date-in" id="date-in" >
+
+</select></p>
+
+<p>Service: <select name="service" id="service" >
+  <?php echo $service_options; ?>
+</select></p>
+
+<p>Vehicle: <select name="vehicle" id="vehicle">
+<?php echo $vehicle_selection; ?>
+</select></p>
+<input type="hidden" name="user_id" id="user_id" value="<?php echo $_SESSION['id'] ?>" />
+</form>
+
+
+<?php
+
+            
+            $query ="SELECT
+            book.date_in,
+            book.date_out,
+            user.user_name,
+            user.id,
+            serv.service_name,
+            sts.status,
+            vehicle.make,
+            vehicle.model,
+            user_vehicle.plate
+        FROM
+            booking as book, 
+            user as user, 
+            service as serv, 
+            status as sts, 
+            car_make as vehicle, 
+            user_vehicle as user_vehicle
+        WHERE 
+            book.user_id = user.id 
+            and book.service_id = serv.id 
+            and book.status_id = sts.id 
+            and book.vehicles_id = user_vehicle.id
+            and user_vehicle.car_make_id  = vehicle.id";
+            $result = mysqli_query($conn, $query);
+        ?>
+        
+        <table class="table table-bordered">
+  <thead>
+    <tr>
+     
+     
+      <th scope="col">DATE IN</th>
+      <th scope="col">DATE OUT</th>
+      <th scope="col">NAME</th>
+      <th scope="col">ID</th>
+      <th scope="col">SERVICE</th>
+      <th scope="col">STATUS</th>
+      <th scope="col">MAKE</th>
+      <th scope="col">MODEL</th>
+      <th scope="col">PLATE</th>
+>>>>>>> da76337c1ca8cca2d39a5d9033db2a2246f9d995
 
 </script>
 

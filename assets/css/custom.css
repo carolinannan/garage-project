@@ -26,6 +26,7 @@
     width:100%;
 }
 
+<<<<<<< HEAD
 .myAccountBody{
     background-image: url("../img/car1.jpg");
     background-repeat: no-repeat;
@@ -80,3 +81,5 @@ select option:disabled {
 .reviews{
     margin: 10px;
 }
+=======
+>>>>>>> da76337c1ca8cca2d39a5d9033db2a2246f9d995
