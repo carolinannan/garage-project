@@ -25,3 +25,58 @@
 .img-100-size{
     width:100%;
 }
+
+.myAccountBody{
+    background-image: url("../img/car1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 85vh;
+    background-attachment: fixed;
+}
+
+.userBody{
+    background-image: url("../img/slide1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 85vh;
+    background-attachment: fixed;
+}
+
+.myAccount-Options{
+    background-color: #ffffff96;
+}
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+.form-user {
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: auto;
+}
+.bookingBody{
+    background-image: url("../img/car3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 85vh;
+    background-attachment: fixed;
+}
+.vehicleBody{
+    background-image: url("../img/slide1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 85vh;
+    background-attachment: fixed;
+}
+.tableBg{
+    background-color: #ffffff96;
+}
+select option:disabled {
+    background-color: gray;
+    color: #000;
+    font-weight: bold;
+}
+.reviews{
+    margin: 10px;
+}

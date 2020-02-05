@@ -2,7 +2,7 @@
 
 include('conn.php');
 if (isset($_SESSION['user'])){ // check it i the variable exist or not
- }
+}
 
 ?>
 
@@ -17,7 +17,7 @@ if (isset($_SESSION['user'])){ // check it i the variable exist or not
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/custom.css">   
+    <link rel="stylesheet" href="assets/css/custom.css">   
     
 </head>
 <body>
@@ -34,16 +34,33 @@ if (isset($_SESSION['user'])){ // check it i the variable exist or not
                              which helps us keep the promise of the company.</p>
                       </div>
                       <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 class="text-white">Contact</h4>
+                        <h4 class="text-white">Menu</h4>
                         <ul class="list-unstyled">
                           <li><a href="index.php" class="text-white">Home</a></li>
-                          <li><a href="login.php" class="text-white">Login</a></li>
-                          <li><a href="register.php" class="text-white">Register</a></li>
+                          <li><a href="review.php" class="text-white">Customer Reviews</a></li>
+                          <?php
+                            if (isset($_SESSION['user'])){ 
+                          ?>
+                          <li><a href="my_account.php" class="text-white">My Account</a></li>
                           <li><a href="booking.php" class="text-white">Booking</a></li>
                           <li><a href="history.php" class="text-white">History</a></li>
-                          <li><a href="customer-reviews.php" class="text-white">Customer Reviews</a></li>
-                          <li><a href="review.php" class="text-white">Review</a></li>
-                          <li><a href="vehicle_register.php" class="text-white">vehicle register</a></li>
+                          <li><a href="write_review.php" class="text-white">Review</a></li>
+                          <li><a href="vehicles.php" class="text-white">My Vehicles</a></li>
+                          <li><a href="logout.php" class="text-white">Logout</a></li>
+                          <?php
+                            if ($_SESSION['id'] == 1){  ?>
+                              <li><a href="my_admin.php" class="text-white">Admin AREA</a></li>
+                                <?php
+                            }
+                          ?>
+                          <?php 
+                            } else {
+                          ?>
+                          <li><a href="login.php" class="text-white">Login</a></li>
+                          <li><a href="register.php" class="text-white">Register</a></li>
+                          <?php 
+                            }
+                          ?>
                         </ul>
                       </div>
                     </div>
@@ -54,8 +71,7 @@ if (isset($_SESSION['user'])){ // check it i the variable exist or not
                     <a href="#" class="navbar-brand d-flex align-items-center">
                       <script src="https://kit.fontawesome.com/aa7bfa4120.js" crossorigin="anonymous"></script>
                       <i class="fas fa-car"></i>
-                     <!--  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg> -->
-                      <strong>   Ger’s Garage & Equipment</strong>
+                        <strong>   Ger’s Garage & Equipment</strong>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>

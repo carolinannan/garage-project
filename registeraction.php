@@ -1,12 +1,15 @@
 <?php
 
 include "conn.php";
-$user= $_POST["user"];
+$name= $_POST["name"];
+$contact= $_POST["contact"];
+$email= $_POST["email"];
 $password= md5($_POST["password"]);
-$query= "INSERT INTO user (user_name, password) VALUES ('$user', '$password')"; //Got from data base, took Id IS AuTO INCREMENT
-if(mysqli_query($conn, $query)) {
-    $_SESSION['user'] = $user; //save the information into the data
-    header("Location: index.php");
+$query= "INSERT INTO users (name, contact, email, password) VALUES ('$name', '$contact', '$email', '$password')"; //Got from data base, took Id IS AuTO INCREMENT
+if($conn->query($query)){
+    $_SESSION['user'] = $email; //save the information into the data#
+    $_SESSION['id'] = $conn->insert_id; //get the last inserted id
+    header("Location: my_account.php");
 }else{
     session_destroy(); 
     header("Location: index.php");

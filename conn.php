@@ -19,4 +19,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+
+//time settings for mechanic
+$MAX_TIME = 4;
+
 ?> 

@@ -3,36 +3,28 @@
 <?php 
 include('header.php');
 $query = "SELECT
-booking.id,
-booking.date_in,
-booking.date_out,
-service.name,
-status.status,
 brand.brand,
 model.model,
-user_vehicles.plate
+user_vehicles.plate,
+user_vehicles.type
 FROM
-booking
-INNER JOIN service ON booking.id_service = service.id
-INNER JOIN status ON booking.id_status = status.id
-INNER JOIN user_vehicles ON booking.id_vehicle = user_vehicles.id
+   user_vehicles
 INNER JOIN brand ON user_vehicles.id_brand = brand.id
 INNER JOIN model ON user_vehicles.id_model = model.id
-WHERE
-booking.id_user =". $_SESSION['id'];
+WHERE 
+   user_vehicles.id_user = ". $_SESSION['id'];
 $table = "";
+
 $result = mysqli_query($conn, $query);
+if($result){
 while ($row = mysqli_fetch_array($result)) { //running one by one. Just a line with all the collunm
   $table = $table ."<tr>
-                      <td>".$row['id']."</td>
-                      <td>".$row['date_in']."</td>
-                      <td>".$row['date_out']."</td>
-                      <td>".$row['name']."</td>
-                      <td>".$row['status']."</td>
                       <td>".$row['brand']."</td>
                       <td>".$row['model']."</td>
                       <td>".$row['plate']."</td>
+                      <td>".$row['type']."</td>
                     </tr>";
+}
 }
 ?>
 
@@ -44,14 +36,10 @@ while ($row = mysqli_fetch_array($result)) { //running one by one. Just a line w
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>  
-                        <th scope="col">Reference ID</th>
-                        <th scope="col">DATE IN</th>
-                        <th scope="col">DATE OUT</th>
-                        <th scope="col">SERVICE</th>
-                        <th scope="col">STATUS</th>
                         <th scope="col">BRAND</th>
                         <th scope="col">MODEL</th>
                         <th scope="col">PLATE</th>
+                        <th scope="col">TYPE</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -59,7 +47,7 @@ while ($row = mysqli_fetch_array($result)) { //running one by one. Just a line w
                     </tbody>
                 </table>
                 <div class="form-label-group">
-                    <a href="booking.php"><button class="btn btn-lg btn-primary btn-block">Book a New Service</button></a>
+                    <a href="vehicle_register.php"><button class="btn btn-lg btn-primary btn-block">Register a New Vehicle</button></a>
                 </div>
             </div>
         </div>
